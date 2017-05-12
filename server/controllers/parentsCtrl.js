@@ -3,7 +3,7 @@
 // <require parents>
 // < use model methods for getting all Parents and one Parent then send the response back with the data>
 
-const Parents = require('../model/parents')
+const Parents = require('../models/parents')
 
 function getAllParents(req, res, next) {
   Parents.all()

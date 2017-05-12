@@ -4,17 +4,18 @@
 // < use model methods for getting all academics and one academic then send the response back with the data>
 
 
-const Academics = require('../model/academics')
+const Academics = require('../models/academics')
 
 function getAllAcademics(req, res, next) {
-  Academics.getAllAcademics()
-                            .then(rows => res.status(200).json({rows}))
+  Academics.getAll()
+                    .then(rows => res.status(200).json({rows}))
+                    .catch(error => res.status(404).json(error))
 }
 
 function getAcademicsById(req, res, next) {
   const { params } = req
   const id = params.id
-  Academics.getSingleAcademic(id)
+  Academics.getOne(id)
                               .then(academic => res.status(200).json({academic}))
                               .catch(error => res.status(404).json(error))
 }

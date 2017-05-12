@@ -3,7 +3,7 @@
 // <require Teachers>
 // < use model methods for getting all Teachers and one Teacher then send the response back with the data>
 
-const Teachers = require('../model/teachers')
+const Teachers = require('../models/teachers')
 
 function getAllTeachers(req, res, next) {
   Teachers.getAll()

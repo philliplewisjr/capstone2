@@ -3,7 +3,7 @@
 // <require Messages>
 // < use model methods for getting all Messages and one Message then send the response back with the data>
 
-const Messages = require('../model/messages')
+const Messages = require('../models/messages')
 
 function getAllMessages(req, res, next) {
   Messages.getAll()
@@ -12,9 +12,9 @@ function getAllMessages(req, res, next) {
 }
 
 function getMessage(req, res, next) {
-  const { params } req;
+  const { params } = req;
   const id = params.id;
-  Message.getMessage(id)
+  Messages.getById(id)
                         .then(message => res.status(200).json(message))
                         .catch(error => res.status(404).json(error))
 
@@ -36,4 +36,4 @@ function deleteMessage(req, res, next) {
                     .catch(error => res.status(404).json(error))
 }
 
-module.exports = { getAllmessages, getMessage, addMessage, deleteMessage }
+module.exports = { getAllMessages, getMessage, addMessage, deleteMessage }

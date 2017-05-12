@@ -3,7 +3,7 @@
 // <require students>
 // < use model methods for getting all Students and one Student then send the response back with the data>
 
-const Students = require('../modals/students')
+const Students = require('../models/students')
 
 function getAllStudents(req, res, next) {
   Students.getAll()

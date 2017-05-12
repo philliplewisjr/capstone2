@@ -1,7 +1,7 @@
-const bookshelf = require('../db/database');
+const { bookshelf } = require('../db/database');
 require('./class')
 
-const Academics = = bookshelf.Model.extend({
+const Academics = bookshelf.Model.extend({
   tableName: 'academics',
   class: function () { this.belongsToMany('Class')}
   // students: function () { return this.belongsToMany('students').through('class')}
@@ -20,10 +20,10 @@ const Academics = = bookshelf.Model.extend({
   getOne: function (id) {
     return this.where({academic_id: id})
     .fetchAll()
-    .then((class)=>{
-      return class;
+    .then((academic)=>{
+      return academic;
     })
-    catch((error)=>{
+    .catch((error)=>{
       return error;
     })
   },
