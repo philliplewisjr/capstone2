@@ -34,4 +34,14 @@ function deleteParent(req, res, next) {
                     .catch(error => res.status(404).json(error))
 }
 
-module.exports = { getAllParents, getParent, addParent, deleteParent }
+function updateParent({params: {id}, body}, res, next) {
+  console.log("id", id)
+  console.log("body", body)
+  Parents.update(body, id)
+  .then(() =>{
+    res.status(200).json({"msg": "successfull"})
+  })
+  .catch((err)=>{ next(err)})
+}
+
+module.exports = { getAllParents, getParent, addParent, deleteParent, updateParent }

@@ -41,7 +41,7 @@ const Parents = bookshelf.Model.extend({
     .destroy({require: true})
   },
   update: function(body, id) {
-    return this.where({parent_id: id})
+    return this.where({id: id})
     .save(body, {patch: true})
     .then(() => {
       return {"message": "Information Updated"}

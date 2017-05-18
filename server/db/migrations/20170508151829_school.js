@@ -20,11 +20,13 @@ exports.up = function(knex, Promise) {
   })
   .createTable("parents", (table)=> {
     table.increments().primary()
+    table.string("email").notNullable().unique()
+    table.string("password")
     table.string("firstname")
     table.string("lastname")
-    table.string("email")
     table.string("child")
     table.string("phone_number")
+    table.string("photo")
   })
   .createTable("academics", (table)=>{
     table.increments().primary()
@@ -34,20 +36,23 @@ exports.up = function(knex, Promise) {
   })
   .createTable("messages", (table)=>{
     table.increments().primary()
-    table.integer("teacher_id").unique().references("teachers.id")
-    table.integer("student_id").unique().references("students.id")
+    table.integer("teacher_id").unsigned().references("teachers.id")
+    table.integer("student_id").unsigned().references("students.id")
     table.string("message")
+    table.unique(["teacher_id", "student_id"])
   })
   .createTable("class", (table)=>{
     table.increments()
-    table.integer("student_id").unique().references("students.id")
-    table.integer("teacher_id").unique().references("teachers.id")
-    table.integer("academic_id").unique().references("academics.id")
+    table.integer("student_id").unsigned().references("students.id")
+    table.integer("teacher_id").unsigned().references("teachers.id")
+    table.integer("academic_id").unsigned().references("academics.id")
+    table.unique(["student_id", "teacher_id", "academic_id"])
   })
   .createTable("family", (table)=>{
     table.increments().primary()
-    table.integer("parent_id").unique().references("parents.id")
-    table.integer("student_id").unique().references("students.id")
+    table.integer("parent_id").unsigned().references("parents.id")
+    table.integer("student_id").unsigned().references("students.id")
+    table.unique(["parent_id", "student_id"])
   })
 };
 

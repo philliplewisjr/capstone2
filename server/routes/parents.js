@@ -11,12 +11,14 @@ const parentRouter = Router()
 const { getAllParents,
           getParent,
           deleteParent,
-          addParent
+          addParent,
+          updateParent
           } = require('../controllers/parentsCtrl')
 
 parentRouter.get('/parents', getAllParents);
-parentRouter.get('/parents/:id', getParent);
+parentRouter.get('/parent/:id', getParent);
 parentRouter.delete('/parents/:id', deleteParent);
 parentRouter.post('/parent', addParent);
+parentRouter.patch('/parent/:id', updateParent);
 
 module.exports = parentRouter

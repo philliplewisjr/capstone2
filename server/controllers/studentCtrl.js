@@ -36,4 +36,14 @@ function deleteStudent(req, res, next) {
                   .catch(error => res.status(404).json(error))
 }
 
-module.exports = { getAllStudents, getStudent, addStudent, deleteStudent }
+function updateStudent({params: {id}, body}, res, next) {
+  console.log("id", id)
+  console.log("body", body)
+  Students.update(body, id)
+  .then(() =>{
+    res.status(200).json({"msg": "successfull"})
+  })
+  .catch((err)=>{ next(err)})
+}
+
+module.exports = { getAllStudents, getStudent, addStudent, deleteStudent, updateStudent }

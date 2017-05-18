@@ -1,19 +1,17 @@
 const { bookshelf } = require('../db/database')
- // require('./family')
- // require('./messages')
- // require('./class')
- // require('./academics')
- // require('./parents')
+ require('./family')
+ require('./messages')
+ require('./class')
+ require('./academics')
+ require('./parents')
 
 
 
 const Students = bookshelf.Model.extend({
-  tableName: 'students'
-  // parent: function() { return this.belongsToMany('Parents').through('Family')},
-  // class: function() { return this.belongsToMany('Class')},
-  // teachers: function() { return this.belongsToMany('Teachers').through('Class')},
-  // message: function() { return this.belongsToMany('Messsages')}
-
+  tableName: 'students',
+  parent: function() { return this.belongsToMany('Parents').through('Family')},
+  teachers: function() { return this.belongsToMany('Teachers').through('Class')},
+  message: function() { return this.belongsToMany('Messsages')}
 }, {
   getAll: function () {
     return this.forge()
@@ -43,8 +41,18 @@ const Students = bookshelf.Model.extend({
     return this.forge(student)
     .save({}, {require: true})
     .then(res => res)
-  }
+  },
+  update: function(body, id) {
+    return this.where({id: id})
+    .save(body, {patch: true})
+    .then(() => {
+      return {"message": "Student Updated"}
+    })
+    .catch((err) => {
+      return err;
+    })
+  },
 
-  // dependents: [ 'Parents', 'Academics', 'Messages' ]
+  dependents: [ 'Family', 'Class', 'Messages' ]
 })
 module.exports = bookshelf.model('Students', Students)
