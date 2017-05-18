@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('parents').insert([
-        {first_name: "Lucas", last_name: "McLaughlin", email: "machine@learning.com", child: "Westly Isbell"},
-        {first_name: "Sorrel", last_name: "Brigman", email: "woman@power.com", child: "Priya"}
+        {firstname: "Lucas", lastname: "McLaughlin", email: "machine@learning.com", child: "Westly Isbell"},
+        {firstname: "Sorrel", lastname: "Brigman", email: "woman@power.com", child: "Priya"}
       ]);
     });
 };

@@ -10,8 +10,9 @@ const parentRouter = Router()
 
 const { getAllParents,
           getParent,
-          addParent,
-          deleteParent } = require('../controllers/parentsCtrl')
+          deleteParent,
+          addParent
+          } = require('../controllers/parentsCtrl')
 
 parentRouter.get('/parents', getAllParents);
 parentRouter.get('/parents/:id', getParent);

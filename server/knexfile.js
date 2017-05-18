@@ -5,9 +5,9 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'nia_montessori',
-      user: 'postgres',
-      password: 'postgres'
+      database: 'nia_montessori'
+      // user: 'postgres',
+      // password: 'postgres'
     },
     migrations: {
       directory: __dirname + '/db/migrations'
@@ -20,9 +20,7 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'my_db'
     },
     pool: {
       min: 2,

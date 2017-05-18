@@ -5,8 +5,8 @@ const teacherRouter = Router()
 
 const { getAllTeachers,
           getTeacher,
-          addTeacher,
-          deleteTeacher } = require('../controllers/teachersCtrl')
+          deleteTeacher,
+          addTeacher } = require('../controllers/teachersCtrl')
 
 teacherRouter.get('/teachers', getAllTeachers)
 teacherRouter.get('/teachers/:id', getTeacher)

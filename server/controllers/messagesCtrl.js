@@ -22,7 +22,7 @@ function getMessage(req, res, next) {
 
 function addMessage(req, res, next) {
   const message = req.body;
-  Message.add(message)
+  Messages.add(message)
                       .then(message => res.status(200).json(message))
                       .catch(error => res.status(404).json(error))
 
@@ -31,7 +31,7 @@ function addMessage(req, res, next) {
 function deleteMessage(req, res, next) {
   const { params } = req;
   const id = params.id;
-  Message.delete(id)
+  Messages.delete(id)
                     .then(message => res.status(200).json(message))
                     .catch(error => res.status(404).json(error))
 }

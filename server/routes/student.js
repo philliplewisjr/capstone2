@@ -12,8 +12,8 @@ const studentRoute = Router()
 const {
       getAllStudents,
       getStudent,
-      addStudent,
-      deleteStudent } = require('../controllers/studentCtrl')
+      deleteStudent,
+      addStudent } = require('../controllers/studentCtrl')
 
 studentRoute.get('/students', getAllStudents)
 studentRoute.get('/students/:id', getStudent)

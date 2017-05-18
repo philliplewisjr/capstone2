@@ -10,8 +10,9 @@ const parentRouter = Router()
 
 const { getAllMessages,
         getMessage,
-        addMessage,
-        deleteMessage } = require('../controllers/messagesCtrl')
+        deleteMessage,
+        addMessage
+         } = require('../controllers/messagesCtrl')
 
 
         parentRouter.get('/messages', getAllMessages)

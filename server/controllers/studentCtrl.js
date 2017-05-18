@@ -22,6 +22,7 @@ function getStudent(req, res, next) {
 
 function addStudent(req, res, next) {
   const student = req.body;
+  console.log(req.body)
   Students.add(student)
                       .then(student => res.status(200).json(student))
                       .catch(error => res.status(404).json(error))

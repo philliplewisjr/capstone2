@@ -16,7 +16,7 @@ const { getAllClass,
 
         classRouter.get('/class', getAllClass)
         classRouter.get('/class/:id', getClass)
-        classRouter.delete('/class/:id', deleteClass)
         classRouter.post('/class', addClass)
+        classRouter.delete('/class/:id', deleteClass)
 
 module.exports = classRouter

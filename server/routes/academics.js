@@ -16,7 +16,8 @@ const academicRouter = Router()
 
         academicRouter.get('/academic', getAllAcademics)
         academicRouter.get('/academic/:id', getAcademicsById)
-        academicRouter.delete('/academic/:id', deleteAcademic)
         academicRouter.post('/academic', createAcademic)
+        academicRouter.delete('/academic/:id', deleteAcademic)
+
 
 module.exports = academicRouter

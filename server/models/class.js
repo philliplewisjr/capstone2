@@ -1,8 +1,8 @@
 'use strict';
 
 const { bookshelf } = require('../db/database')
-require('./teachers')
-require('./students')
+require('./teachers');
+require('./students');
 require('./academics')
 
 const Class = bookshelf.Model.extend({

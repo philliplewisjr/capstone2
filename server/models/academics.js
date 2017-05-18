@@ -1,11 +1,14 @@
 const { bookshelf } = require('../db/database');
-require('./class')
+require('./students');
+require('./teachers');
+
+
 
 const Academics = bookshelf.Model.extend({
   tableName: 'academics',
-  class: function () { this.belongsToMany('Class')}
-  // students: function () { return this.belongsToMany('students').through('class')}
-  // teachers: function () { return this.belongsToMany('teachers').through('class')}
+  class: function () { this.belongsToMany('Class')},
+  students: function () { return this.belongsToMany('students').through('class')},
+  teachers: function () { return this.belongsToMany('teachers').through('class')}
 }, {
   getAll: function () {
     return this.forge()

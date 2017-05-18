@@ -1,12 +1,14 @@
 const { bookshelf } = require('../db/database')
 
-require('./academics')
+require('./class')
 require('./messages')
+require('./academics')
+require('./students')
 
 const Teachers = bookshelf.Model.extend({
   tableName: 'teachers',
-  Academics: function() { return this.belongsToMany('Academics').through('Class')},
-  message: function() { return this.belongsToMany('messsages').through('messages')}
+  class: function() { return this.belongsToMany('class')},
+  message: function() { return this.belongsToMany('messsages')}
 }, {
   getAll: function () {
     return this.forge()
@@ -19,7 +21,7 @@ const Teachers = bookshelf.Model.extend({
     })
   },
   getById: function (id) {
-    return this.where({teacher_id: id})
+    return this.where({id: id})
     .fetch()
     .then((teacher)=>{
       return teacher;
@@ -29,13 +31,16 @@ const Teachers = bookshelf.Model.extend({
     })
   },
   add: function (teacher) {
+    console.log(teacher)
     return this.forge(teacher)
-    .save({}, {require: true})
+    .save()
+    .then(()=> res.status(200).json({"msg": "teacher"}))
+    .catch((err)=> next(err))
   },
   delete: function (id) {
-    return this.where({teacher_id: id})
+    return this.where({id: id})
     .destroy({require: true})
   },
-  dependencies: ['Class', 'Messages']
+  dependents: [ 'messages', 'academics','students']
   })
 module.exports = bookshelf.model('Teachers', Teachers)
