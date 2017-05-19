@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,27 @@
 <link rel="stylesheet" href="/lib/materialize/dist/css/materialize.css">
 <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="main.css">
-<body>
+
+<body ng-app="niaHouse">
+
+  <!-- nav bar -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a class="navLogin" href="#/login">LOGIN</a></li>
+          <li><a class="navLogout ng-hide" href="/">LOGOUT</a></li>
+          <li><a class="navRegister" href="#/register">REGISTER</a></li>
+          <li><a href="/">HOME</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div ng-view>
+
+  </div>
 
 
   <!-- angular -->
@@ -17,8 +37,9 @@
   <script src="/lib/angular-route/angular-route.min.js"></script>
   <script src="/lib/jquery/dist/jquery.js"></script>
   <script src="/lib/materialize/dist/js/materialize.js"></script>
-  <script src="/lib/app/app.js" type="text/javascript"></script>
-  <script src="/lib/app/config.js" type="text/javascript"></script>
+  <!-- app -->
+  <script src="/app/app.js" type="text/javascript"></script>
+  <script src="/app/config.js" type="text/javascript"></script>
   <!--factories  -->
   <script src="/factory/academicFactory.js" type="text/javascript"></script>
   <script src="/factory/classFactory.js" type="text/javascript"></script>
@@ -28,12 +49,11 @@
   <script src="/factory/studentFactory.js" type="text/javascript"></script>
   <script src="/factory/teachersFactory.js" type="text/javascript"></script>
   <!-- controllers -->
-  <script src="/controllers/academic.js" type="text/javascript"></script>
-  <script src="/controllers/class.js" type="text/javascript"></script>
-  <script src="/controllers/family.js" type="text/javascript"></script>
-  <script src="/controllers/message.js" type="text/javascript"></script>
-  <script src="/controllers/parent.js" type="text/javascript"></script>
-  <script src="/controllers/student.js" type="text/javascript"></script>
-  <script src="/controllers/teacher.js" type="text/javascript"></script>
+  <script src="/controllers/login.js" type="text/javascript"></script>
+  <script src="/controllers/registration.js" type="text/javascript"></script>
+  <script src="/controllers/parentProfile.js" type="text/javascript"></script>
+  <script src="/controllers/studentProfile.js" type="text/javascript"></script>
+  <script src="/controllers/home.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -8,7 +8,7 @@ const app = express()
 const { PORT } = require('./env_config')
 
 app.use(cors())
-app.use(express.static('client'))
+// app.use(express.static('client'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))

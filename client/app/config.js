@@ -1,9 +1,13 @@
 console.log("config app")
 
-app.config(function($routeProvide, $locationProvider){
-  $locationProvide.hashPrefix('');
+app.config(function($routeProvider, $locationProvider){
+  $locationProvider.hashPrefix('');
 
   $routeProvider
+  .when("/", {
+    controller: "HomeCtrl",
+    templateUrl: "partials/home.html"
+  })
   .when("/login", {
     controller: "LoginCtrl",
     templateUrl: "partials/login.html"
