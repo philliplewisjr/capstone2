@@ -18,6 +18,7 @@ $scope.cancel = function() {
   console.log("cancel button")
   $(".navLogout").addClass("ng-hide")
   $(".navLogin").removeClass("ng-hide")
+  $location.url()
 }
 
 
