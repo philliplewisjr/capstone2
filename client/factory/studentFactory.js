@@ -15,7 +15,7 @@ app.factory("studentFactory", function($http){
        console.log("data", data.data)
        return data
      })
-   },
+   }
  }
 
  })

@@ -10,6 +10,7 @@ app.controller("ClassPageCtrl", function($scope, $location, studentFactory, $htt
     $scope.students = data.data
   })
 
+  //deletes students form page
   $scope.delete = function (id) {
     $scope.id = id;
     console.log(id)

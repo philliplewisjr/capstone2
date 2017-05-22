@@ -8,7 +8,7 @@
           <p>{{teacher.firstname}} <br>
              {{teacher.lastname}}
           </p>
-          <a href="https://github.com/nss-day-cohort-17" class="secondary-content"><i class="material-icons">Cohort 17</i></a>
+          <a href="https://github.com/nss-day-cohort-17" class="secondary-content"><i class="right">📚</i></a>
         </li>
       </ul>
     </div>
@@ -26,7 +26,63 @@
         <img class="activator" src="{{student.picture}}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<i class="material-icons right">done</i></span>
+        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<a ng-click="updateProfile()" data-target="modal1" class="waves-effect waves-light btn">Update</a></span>
+        <!-- Modal for updating profile -->
+        <div id="modal1" class="modal">
+          <div class="login">
+            <div class="row">
+              <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="email" type="text" class="validate">
+                      <label for="first">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="password" type="text" class="validate">
+                      <label for="Password">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" class="validate">
+                      <label for="Password Confirmation">Password Confirmation</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="childname" type="text" class="validate">
+                      <label for="password">Child Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="phone" type="text" id="phone" class="validate">
+                      <label for="phone">Phone #</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="photo" type="text" class="validate">
+                      <label for="photo">Photo</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="modal-footer">
+                      <a ng-click="updateStudent(student.id)"class="waves-effect waves-light btn right">Submit</a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="s6">
+                      <a ng-click="cancel()" class="waves-effect waves-light btn">Cancel</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+        </div>
         <p><a href="#">This is a link</a></p>
       </div>
       <div class="card-reveal">
