@@ -4,7 +4,7 @@ app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, c
   //get all students
   studentFactory.getData()
   .then((data)=>{
-    console.log("data", data)
+    // console.log("data", data)
   })
   .catch((err)=>{
     console.log(err)
@@ -13,13 +13,13 @@ app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, c
   //get all teachers
   teacherFactory.getTeachers()
   .then((data)=>{
-    console.log(data)
+    // console.log(data)
   })
 
   //get all classes
   classFactory.getClass()
   .then((data)=>{
-    console.log(data)
+    // console.log(data)
   })
 
   //get one student by id
@@ -27,7 +27,7 @@ app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, c
  .then((data)=>{
   //  console.log(data.data)
    var student = data.data;
-   console.log("student", student)
+  //  console.log("student", student)
    $scope.student = data.data;
  })
 
@@ -36,7 +36,7 @@ app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, c
  .then((data)=>{
   //  console.log(data.data)
    var teacher = data.data;
-   console.log("teacher", teacher)
+  //  console.log("teacher", teacher)
    $scope.teacher = data.data;
  })
 
@@ -51,9 +51,7 @@ app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, c
       console.log("data", data)
     }
   }
-  $scope.updateStudent = (id)=> {
-    console.log(id)
-  }
+
 
 $scope.updateProfile = ()=>{
     $('.modal').modal({
@@ -70,6 +68,35 @@ $scope.updateProfile = ()=>{
       //  complete: function() { alert('Closed'); } // Callback for Modal close
      }
    );
+ }
+
+//post updated student data
+ $scope.updateStudent = (id)=> {
+   console.log(id)
+   let studentData ={
+     firstname: $scope.firstName,
+     lastname: $scope.lastName,
+     picture: $scope.pictureUrl,
+     grade: $scope.grade,
+     parent: $scope.parent,
+     phone: $scope.phone,
+     gender: $scope.gender
+   }
+   console.log(studentData)
+   //always send the actual variable with brackets
+   //if brackets are around the object it will not post to database
+   $http.patch(`http://localhost:5000/api/v1/students/${id}`, studentData)
+   .then((data)=>{
+     console.log(data)
+     $http.get(`http://localhost:5000/api/v1/students/${id}`)
+     .then((data)=>{
+       console.log(data.data)
+       $scope.student = data.data;
+     })
+     .catch((err)=>{
+       console.log(err)
+     })
+   })
  }
 
 })
