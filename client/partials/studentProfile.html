@@ -3,12 +3,12 @@
     <div class="col s3 offset-s2">
       <ul class="collection teacherCard">
         <li class="collection-item avatar">
-          <img class="circle" src="https://avatars1.githubusercontent.com/u/11527852?v=3&s=400">
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
+          <img class="circle" src="{{teacher.picture}}">
+          <span class="title">Instructor</span>
+          <p>{{teacher.firstname}} <br>
+             {{teacher.lastname}}
           </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          <a href="https://github.com/nss-day-cohort-17" class="secondary-content"><i class="material-icons">Cohort 17</i></a>
         </li>
       </ul>
     </div>
@@ -21,25 +21,28 @@
   <div class="col s2 offset-s2">
     <div class="card studentCard z-depth-4">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://avatars0.githubusercontent.com/u/19920040?v=3&s=400">
+        <!-- <input type="file" id="file" name="file"/ />
+        <button ng-click="addPhoto()">Upload Photo</button> -->
+        <img class="activator" src="{{student.picture}}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<i class="material-icons right">done</i></span>
         <p><a href="#">This is a link</a></p>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <span class="card-title grey-text text-darken-4">Student Bio<i class="material-icons right">done</i></span>
+        <ol>
+          <li>
+            Name:
+          </li>
+          <li>
+            Grade:
+          </li>
+        </ol>
         <p>Here is some more information about this product that is only revealed once clicked on.</p>
       </div>
    </div>
-    <ol>
-      <li>
-        Name:
-      </li>
-      <li>
-        Grade:
-      </li>
-    </ol>
+
   </div>
 
   <div class="col s6 offset-s1">

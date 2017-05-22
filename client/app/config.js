@@ -20,6 +20,10 @@ app.config(function($routeProvider, $locationProvider){
     controller: "StudentCtrl",
     templateUrl: "partials/studentProfile.html"
   })
+  .when("/class", {
+    controller: "ClassPageCtrl",
+    templateUrl: "partials/classPage.html"
+  })
   .when("/parentProfile", {
     controller: "ParentCtrl",
     templateUrl: "partials/parentProfile.html"
