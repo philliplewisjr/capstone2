@@ -32,3 +32,16 @@
   margin-top: 20px;
   border-left: black;
 }
+
+.container {
+  display:flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+/*.photo {
+  height: 300px;
+  width: 100px;
+}*/
