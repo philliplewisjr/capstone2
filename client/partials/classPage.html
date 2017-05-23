@@ -1,15 +1,19 @@
-<div class="container">
-  <div class="card col s1 offset-s1" ng-repeat="student in students">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator photo" src="{{student.picture}}">
+<div class="container fluid">
+  <div class="row">
+    <div class="card col s3 offset-s1 classCards z-depth-4" ng-repeat="student in students">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator photo" src="{{student.picture}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<h6>{{student.parent}}</h6></span>
+        <i ng-click="delete(student.id)" class="material-icons">🗑</i>
+      </div>
+      <!-- <div>
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div> -->
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<h6>{{student.parent}}</h6></span>
-      <i ng-click="delete(student.id)" class="material-icons">🗑</i>
-    </div>
-    <!-- <div>
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div> -->
   </div>
 </div>
+
+<a ng-click="addStudent(student)" class="waves-effect waves-light btn">Add Student</i>
