@@ -1,6 +1,10 @@
 app.controller("ClassPageCtrl", function($scope, $location, studentFactory, $http){
   console.log("class page controller")
 
+  //scoping studentProfile
+  // var studentProfile = studentProfile;
+  // $scope.studentProfile = studentProfile;
+
   //get all students
   studentFactory.getData()
   .then((data)=>{
@@ -26,23 +30,11 @@ app.controller("ClassPageCtrl", function($scope, $location, studentFactory, $htt
       })
     })
   }
-  //add student
-  $scope.addStudent = function() {
-    console.log("student")
-    $('.modal2').modal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      inDuration: 300, // Transition in duration
-      outDuration: 200, // Transition out duration
-      startingTop: '4%', // Starting top style attribute
-      endingTop: '10%', // Ending top style attribute
-      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-        alert("Ready");
-        console.log(modal, trigger);
-      },
-      complete: function() { alert('Closed'); } // Callback for Modal close
-    }
-  );
+
+  //got to student parentProfile
+  $scope.profilePage = function (id) {
+    console.log("profile button pressed", id)
   }
+
 
 })

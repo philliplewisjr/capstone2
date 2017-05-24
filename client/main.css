@@ -91,3 +91,11 @@
   border-width: thin;
   border-radius: 10px;
 }
+
+.addStudentForm {
+  margin-top: 80px;
+}
+
+.addHeader {
+  text-align: center;
+}

@@ -7,6 +7,7 @@
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<h6>{{student.parent}}</h6></span>
         <i ng-click="delete(student.id)" class="material-icons">🗑</i>
+        <a ng-href="#/student/{{studentProfile.id}}" class="waves-effect waves-light btn">Profile</a>
       </div>
       <!-- <div>
         <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
@@ -16,4 +17,8 @@
   </div>
 </div>
 
-<a ng-click="addStudent(student)" class="waves-effect waves-light btn">Add Student</i>
+
+
+
+
+<!-- <a ng-click="addStudent(student)" class="waves-effect waves-light btn">Add Student</i> -->

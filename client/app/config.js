@@ -1,4 +1,4 @@
-console.log("config app")
+
 
 app.config(function($routeProvider, $locationProvider){
   $locationProvider.hashPrefix('');
@@ -16,9 +16,23 @@ app.config(function($routeProvider, $locationProvider){
     controller: "RegisterCtrl",
     templateUrl: "partials/registration.html"
   })
-  .when("/student", {
+  .when("/student/:id", {
     controller: "StudentCtrl",
-    templateUrl: "partials/studentProfile.html"
+    templateUrl: "partials/studentProfile.html",
+    resolve: {
+      studentProfile: function (studentFactory, $route, $location) {
+        const id = $route.current.params.id
+         return studentFactory.getStudent(id);
+                  // .then((data) => {
+                  //   console.log(data.data)
+                  // })
+                  // .catch((err)=>{
+                  //   console.log(err)
+                  // })
+                  // .catch(()=> $location.url("/student"))
+      }
+    }
+
   })
   .when("/class", {
     controller: "ClassPageCtrl",
@@ -27,5 +41,9 @@ app.config(function($routeProvider, $locationProvider){
   .when("/parentProfile", {
     controller: "ParentCtrl",
     templateUrl: "partials/parentProfile.html"
+  })
+  .when("/addstudent", {
+    controller: "AddStudentCtrl",
+    templateUrl: "partials/addStudent.html"
   })
 })
