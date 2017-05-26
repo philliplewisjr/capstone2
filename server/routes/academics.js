@@ -11,13 +11,14 @@ const academicRouter = Router()
     const { getAllAcademics,
             getAcademicsById,
             createAcademic,
-            deleteAcademic } = require('../controllers/academicCtrl')
+            deleteAcademic, updateAcademic } = require('../controllers/academicCtrl')
 
 
         academicRouter.get('/academic', getAllAcademics)
         academicRouter.get('/academic/:id', getAcademicsById)
         academicRouter.post('/academic', createAcademic)
         academicRouter.delete('/academic/:id', deleteAcademic)
+        academicRouter.patch('/academic/:id', updateAcademic)
 
 
 module.exports = academicRouter

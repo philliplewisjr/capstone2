@@ -1,25 +1,20 @@
 const { bookshelf } = require('../db/database')
- require('./family')
- require('./messages')
- require('./class')
- require('./academics')
- require('./parents')
 
+require('./class1')
+require('./teachers1')
 
-
-const Students = bookshelf.Model.extend({
+const Student = bookshelf.Model.extend({
   tableName: 'students',
-  parent: function() { return this.belongsToMany('Parents').through('Family')},
-  academics: function() { return this.belongsToMany('Academics').through('Class') },
-  message: function() { return this.belongsToMany('Messsages')}
-}, {
+  class: function () {return this.hasMany('Class')},
+  teachers: function () {return this.hasMany('Teacher').through('Class')}
+},{
   getAll: function () {
     return this.forge()
     .fetchAll()
     .then((rows)=>{
-      return rows
+      return rows;
     })
-    .catch((error)=> {
+    .catch((error)=>{
       return error
     })
   },
@@ -51,8 +46,7 @@ const Students = bookshelf.Model.extend({
     .catch((err) => {
       return err;
     })
-  },
-
-  dependents: [ 'Family', 'Class', 'Messages' ]
+  }
 })
-module.exports = bookshelf.model('Students', Students)
+
+module.exports = bookshelf.model('Student', Student)

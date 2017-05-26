@@ -11,12 +11,13 @@ const classRouter = Router()
 const { getAllClass,
         getClass,
         addClass,
-        deleteClass } = require('../controllers/classCtrl')
+        deleteClass, updateClass } = require('../controllers/classCtrl')
 
 
         classRouter.get('/class', getAllClass)
         classRouter.get('/class/:id', getClass)
         classRouter.post('/class', addClass)
         classRouter.delete('/class/:id', deleteClass)
+        classRouter.patch('/class/:id', updateClass)
 
 module.exports = classRouter

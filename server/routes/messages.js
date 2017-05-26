@@ -6,7 +6,7 @@
 // <define routes for getting all Messages and a Message>
 
 const { Router } = require('express')
-const parentRouter = Router()
+const messagesRouter = Router()
 
 const { getAllMessages,
         getMessage,
@@ -15,9 +15,9 @@ const { getAllMessages,
          } = require('../controllers/messagesCtrl')
 
 
-        parentRouter.get('/messages', getAllMessages)
-        parentRouter.get('/messages/:id', getMessage)
-        parentRouter.delete('/messages/:id', deleteMessage)
-        parentRouter.post('/messages', addMessage)
+        messagesRouter.get('/messages', getAllMessages)
+        messagesRouter.get('/messages/:id', getMessage)
+        messagesRouter.delete('/messages/:id', deleteMessage)
+        messagesRouter.post('/messages', addMessage)
 
-module.exports = parentRouter
+module.exports = messagesRouter

@@ -22,14 +22,7 @@ app.config(function($routeProvider, $locationProvider){
     resolve: {
       studentProfile: function (studentFactory, $route, $location) {
         const id = $route.current.params.id
-         return studentFactory.getStudent(id);
-                  // .then((data) => {
-                  //   console.log(data.data)
-                  // })
-                  // .catch((err)=>{
-                  //   console.log(err)
-                  // })
-                  // .catch(()=> $location.url("/student"))
+          return studentFactory.getStudent(id);
       }
     }
 
@@ -37,6 +30,12 @@ app.config(function($routeProvider, $locationProvider){
   .when("/class", {
     controller: "ClassPageCtrl",
     templateUrl: "partials/classPage.html"
+    // resolve: {
+    //   studentId: function (studentFactory, $route, $location ) {
+    //     const id = $route.current.params.id
+    //     return studentFactory.getStudent(id)
+    //   }
+    // }
   })
   .when("/parentProfile", {
     controller: "ParentCtrl",

@@ -1,15 +1,10 @@
 const { bookshelf } = require('../db/database');
-require('./students');
-require('./teachers');
-require('./class');
 
 
 
-const Academics = bookshelf.Model.extend({
-  tableName: 'academics',
-  class: function () { this.belongsToMany('Class')},
-  students: function () { return this.belongsToMany('Students').through('Class')},
-  teachers: function () { return this.belongsToMany('Teachers').through('Class')}
+
+const Academic = bookshelf.Model.extend({
+  tableName: 'academics'
 }, {
   getAll: function () {
     return this.forge()
@@ -38,7 +33,15 @@ const Academics = bookshelf.Model.extend({
   add: function (academic) {
     return this.forge(academic)
     .save({}, {require: true})
+  },
+  update: function(body, id) {
+    return this.where({id: id})
+    .save(body, {patch: true})
+    .then(() => {
+      return {"message": "Academics Updated"}
+    })
   }
+
 })
 
-module.exports = bookshelf.model('Academics', Academics)
+module.exports = bookshelf.model('Academic', Academic)

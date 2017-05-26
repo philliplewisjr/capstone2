@@ -18,7 +18,7 @@ const Family = bookshelf.Model.extend({
     })
   },
   getById: function (id) {
-    return this.where({family_id: id})
+    return this.where({id: id})
     .fetch()
     .then((family)=>{
       return family;
@@ -26,6 +26,12 @@ const Family = bookshelf.Model.extend({
     .catch((error)=>{
       return family;
     })
-  }
+  },
+  delete: function (id) {
+    return this.where({id: id})
+    .destroy({require: true})
+  },
+  dependents: [ 'Parents', 'Students' ]
+
 })
 module.exports = bookshelf.model('Family', Family)

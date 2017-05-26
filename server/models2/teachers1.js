@@ -1,13 +1,11 @@
 const { bookshelf } = require('../db/database')
 
-require('./class')
-require('./messages')
-require('./academics')
-require('./students')
+require('./academics1')
+// require('./class1')
 
-const Teachers = bookshelf.Model.extend({
+const Teacher = bookshelf.Model.extend({
   tableName: 'teachers',
-  class: function() { return this.belongsToMany('Students').through('Class')},
+  // class: function() { return this.belongsToMany('Classes')},
   message: function() { return this.belongsToMany('messsages')}
 }, {
   getAll: function () {
@@ -50,7 +48,6 @@ const Teachers = bookshelf.Model.extend({
     .catch((err) => {
       return err;
     })
-  },
-  dependents: [ 'Messages', 'Academics','Students']
+  }
   })
-module.exports = bookshelf.model('Teachers', Teachers)
+module.exports = bookshelf.model('Teacher', Teacher)

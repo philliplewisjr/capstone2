@@ -17,5 +17,13 @@ function getFamily(req, res, next) {
                   .then(family => res.status(200).json(family))
                   .catch(error => res.status(404).json(error))
 }
+function deleteFamily(req, res, next) {
+  const { params } = req;
+  const id = params.id;
+    Family.delete(id)
+                    .then(teacher => res.status(200).json(teacher))
+                    .catch(error => res.status(404).json(error))
 
-module.exports = { getAllFamilies, getFamily }
+}
+
+module.exports = { getAllFamilies, getFamily, deleteFamily }

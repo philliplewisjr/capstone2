@@ -10,7 +10,7 @@ app.factory("studentFactory", function($http){
       })
    },
    getStudent: function (id) {
-     return $http.get(`http://localhost:5000/api/v1/students/${id}`)
+     return $http.get(`http://localhost:5000/api/v1/students/class/${id}`)
      .then(function(data){
        console.log("data", data.data)
        return data.data

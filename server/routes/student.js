@@ -13,12 +13,13 @@ const {
       getAllStudents,
       getStudent,
       deleteStudent,
-      addStudent, updateStudent } = require('../controllers/studentCtrl')
+      addStudent, updateStudent, getStudentClass } = require('../controllers/studentCtrl')
 
 studentRoute.get('/students', getAllStudents)
 studentRoute.get('/students/:id', getStudent)
 studentRoute.delete('/students/:id', deleteStudent)
 studentRoute.post('/students', addStudent)
 studentRoute.patch('/students/:id', updateStudent)
+studentRoute.get('/students/class/:id', getStudentClass)
 
 module.exports = studentRoute;

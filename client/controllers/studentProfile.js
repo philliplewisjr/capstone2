@@ -1,7 +1,7 @@
 app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, classFactory, studentProfile,  $location, $http) {
 
 
-  console.log(studentProfile.firstname)
+  console.log(studentProfile.class[0].academics.picture)
   var studentProfile = studentProfile
   $scope.studentProfile =studentProfile
   //get all students

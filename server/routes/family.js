@@ -9,10 +9,11 @@ const { Router } = require('express')
 const familyRouter = Router()
 
     const { getAllFamilies,
-            getFamily } = require('../controllers/familyCtrl')
+            getFamily, deleteFamily } = require('../controllers/familyCtrl')
 
 
         familyRouter.get('/family', getAllFamilies)
         familyRouter.get('/family/:id', getFamily)
+        familyRouter.delete('/family/:id', deleteFamily)
 
 module.exports = familyRouter

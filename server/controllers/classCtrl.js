@@ -3,10 +3,10 @@
 // <require class>
 // < use model methods for getting all Classes and one class then send the response back with the data>
 
-const Class = require('../models/class')
+const Classes = require('../models2/class1')
 
 function getAllClass(req, res, next) {
-  Class.getAll()
+  Classes.getAll()
                 .then(rows => res.status(200).json(rows))
                 .catch(error => res.status(404).json(error))
 }
@@ -14,14 +14,14 @@ function getAllClass(req, res, next) {
 function getClass(req, res, next) {
   const { params } = req;
   const id = params.id
-  Class.getById(id)
+  Classes.getById(id)
                 .then(classFirst => res.status(200).json(classFirst))
                 .catch(error => res.status(404).json(error))
 }
 
 function addClass(req, res, next) {
   const newClass = req.body;
-  Class.add(newClass)
+  Classes.add(newClass)
                      .then(newClass => res.status(200).json(newClass))
                      .catch(error => res.status(404).json(error))
 }
@@ -29,9 +29,20 @@ function addClass(req, res, next) {
 function deleteClass(req, res, next) {
   const { params } = req;
   const id = params.id;
-  Class.delete(id)
+  Classes.delete(id)
                  .then(dclass => res.status(200).json(dclass))
                  .catch(error => res.status(404).json(error))
 }
 
-module.exports = { getAllClass, getClass, addClass, deleteClass }
+function updateClass({params: {id}, body}, res, next) {
+  console.log("id", id)
+  console.log("body", body)
+  Classes.update(body, id)
+  .then(() =>{
+    res.status(200).json({"msg": "successfull"})
+  })
+  .catch((err)=>{ next(err)})
+}
+
+
+module.exports = { getAllClass, getClass, addClass, deleteClass, updateClass }

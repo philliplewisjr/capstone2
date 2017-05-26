@@ -1,15 +1,13 @@
 'use strict';
 
 const { bookshelf } = require('../db/database')
-require('./teachers');
-require('./students');
-require('./academics')
 
-const Class = bookshelf.Model.extend({
+require('./academics1')
+
+const Classes = bookshelf.Model.extend({
   tableName: 'class',
-  teachers: function () { return this.belongsTo('Teachers') },
-  students: function () { return this.belongsTo('Students') },
-  academics: function () { return this.belongsTo('Academics') }
+  academic: function () {return this.belongsToMany('Academic');},
+  teachers: function () {return this.belongsToMany('Teacher')}
 }, {
   getAll: function () {
     return this.forge()
@@ -39,6 +37,12 @@ const Class = bookshelf.Model.extend({
     return this.where({id: id})
     .destroy({require: true})
   },
-  dependents: [ 'Students', 'Teachers', 'Academics' ]
+  update: function(body, id) {
+    return this.where({id: id})
+    .save(body, {patch: true})
+    .then(() => {
+      return {"message": "Class Updated"}
+    })
+  }
 })
-module.exports = bookshelf.model('Class', Class)
+module.exports = bookshelf.model('Classes', Classes)
