@@ -95,4 +95,8 @@ $scope.updateProfile = ()=>{
   //  })
  }
 
+ $scope.addClass = ()=> {
+   console.log("add class button clicked")
+ }
+
 })

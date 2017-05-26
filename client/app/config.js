@@ -45,4 +45,8 @@ app.config(function($routeProvider, $locationProvider){
     controller: "AddStudentCtrl",
     templateUrl: "partials/addStudent.html"
   })
+  .when("/addClass", {
+    controller: "AddClassCtrl",
+    templateUrl: "partials/addClass.html"
+  })
 })
