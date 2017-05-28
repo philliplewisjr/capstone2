@@ -1,9 +1,30 @@
 app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, classFactory, studentProfile,  $location, $http) {
 
 
-  console.log(studentProfile.class[0].academics.picture)
-  var studentProfile = studentProfile
-  $scope.studentProfile =studentProfile
+  console.log("studentProfile", studentProfile.class)
+  // var studentProfile = studentProfile
+  $scope.studentProfile = studentProfile
+  var studentClass = studentProfile.class
+// console.log(studentClass)
+
+let classData = []
+for(var i = 0; i < studentClass.length; i++) {
+  console.log(studentClass[i].academics)
+classData.push(studentClass[i].academics)
+// classData[1] += studentClass[i].academics
+console.log(classData)
+$scope.classData
+}
+
+  // for(let i in studentClass) {
+  //   console.log(studentClass[i].academics)
+  //   academics[0] = studentClass[i].academics
+  //   academics[1] = studentClass[i].academics
+  //   console.log(academics)
+  //   $scope.academics
+  // }
+
+
   //get all students
   studentFactory.getData()
   .then((data)=>{
@@ -69,34 +90,36 @@ $scope.updateProfile = ()=>{
 //post updated student data
  $scope.updateStudent = (id)=> {
    console.log(id)
-  //  let studentData ={
-  //    firstname: $scope.firstName,
-  //    lastname: $scope.lastName,
-  //    picture: $scope.pictureUrl,
-  //    grade: $scope.grade,
-  //    parent: $scope.parent,
-  //    phone: $scope.phone,
-  //    gender: $scope.gender
-  //  }
-  //  console.log(studentData)
-  //  //always send the actual variable without brackets
-  //  //if brackets are around the object it will not post to database
-  //  $http.patch(`http://localhost:5000/api/v1/students/${id}`, studentData)
-  //  .then((data)=>{
-  //    console.log(data)
-  //    $http.get(`http://localhost:5000/api/v1/students/${id}`)
-  //    .then((data)=>{
-  //      console.log(data.data)
-  //      $scope.student = data.data;
-  //    })
-  //    .catch((err)=>{
-  //      console.log(err)
-  //    })
-  //  })
+   let studentData ={
+     firstname: $scope.firstName,
+     lastname: $scope.lastName,
+     picture: $scope.pictureUrl,
+     grade: $scope.grade,
+     parent: $scope.parent,
+     phone: $scope.phone,
+     gender: $scope.gender
+   }
+   console.log(studentData)
+   //always send the actual variable without brackets
+   //if brackets are around the object it will not post to database
+   $http.patch(`http://localhost:5000/api/v1/students/${id}`, studentData)
+   .then((data)=>{
+     console.log(data)
+     $http.get(`http://localhost:5000/api/v1/students/${id}`)
+     .then((data)=>{
+       console.log(data.data)
+       $scope.student = data.data;
+     })
+     .catch((err)=>{
+       console.log(err)
+     })
+   })
  }
 
  $scope.addClass = ()=> {
    console.log("add class button clicked")
+   $location.url("/addClass")
+
  }
 
 })

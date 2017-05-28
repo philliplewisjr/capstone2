@@ -26,7 +26,7 @@
         <img class="activator" src="{{studentProfile.picture}}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{{studentProfile.firstname}} {{studentProfile.lastname}}<a ng-click="updateProfile()" data-target="modal1" class="waves-effect waves-light btn right">Update</a></span>
+        <span class="card-title activator grey-text text-darken-4">{{studentProfile.firstname}} {{studentProfile.lastname}}<a ng-click="updateProfile()" data-target="modal1" class="waves-effect waves-light lime btn right">Update</a></span>
 
         <!-- Modal for updating profile -->
         <div id="modal1" class="modal updateStudent">
@@ -77,7 +77,7 @@
                   </div> -->
                   <div class="row">
                     <div class="col s2 offset-s2">
-                      <a ng-click="updateStudent(studentProfile.id)"class="waves-effect waves-light btn right">Submit</a>
+                      <a ng-click="updateStudent(studentProfile.id)"class="waves-effect waves-light lime btn right">Submit</a>
                     </div>
                   </div>
                 </form>
@@ -106,7 +106,7 @@
 
   <div class="col s6 offset-s1 academicTable z-depth-4">
       <div class="table">
-        <table class="highlight bordered">
+        <table class="highlight bordered ng-repeat="data in classData">
           <thead>
             <tr>
                 <th >Class</th>
@@ -117,9 +117,9 @@
 
           <tbody>
             <tr>
-              <td><img ng-src="{{studentProfile.class[0].academics.picture}}" height="20px"/></td>
-              <td>{{studentProfile.class[0].academics.subject}}</td>
-              <td>{{studentProfile.class[0].academics.status}}</td>
+              <td><img ng-src="{{data.picture}}" height="20px"/></td>
+              <td>{{data.subject}}</td>
+              <td>{{data.status}}</td>
             </tr>
             <tr>
               <td>Alan</td>
@@ -134,5 +134,5 @@
           </tbody>
         </table>
       </div>
-      <a ng-click="addClass()" class="waves-effect waves-light btn">Add Class</a>
+      <a ng-click="addClass()" class="waves-effect waves-light lime btn">Add Class</a>
     </div>

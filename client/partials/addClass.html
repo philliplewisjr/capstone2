@@ -1,32 +1,68 @@
-
-  <div class="col s12 addClass">
-    <form class="col s12">
-      <div class="input-field col s12 firstField">
-        <select>
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
-        <label>Materialize Select</label>
+<h2 class="center-align registrationHeader">ADD CLASS</h3>
+  <!-- registration div -->
+  <div class="col s10 offset-s2 registration z-depth-5">
+    <form class="col s10 registartionForm">
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input id="teacher" type="text" class="validate">
+          <label for="Student">STUDENT ID</label>
+        </div>
       </div>
-      <div class="input-field col s12 secondField">
-        <select>
-          <option value="" disabled selected>SELECT A TEACHER</option>
-          <option value="1">Scott Humphries</option>
-          <option value="2">Catlin Stein</option>
-          <option value="3">Joe Shepherd</option>
-        </select>
-        <label>Choose A Teacher</label>
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input id="teacher" type="text" class="validate">
+          <label for="Teacher">TEACHER</label>
+        </div>
       </div>
-      <div class="input-field col s12 thirdField">
-        <select>
-          <option value="" disabled selected>SELECT A CLASS</option>
-          <option value="1">JavaScript</option>
-          <option value="2">NodeJs</option>
-          <option value="3">SQL</option>
-        </select>
-        <label>Choose A Class</label>
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input id="password" type="text" class="validate">
+          <label for="Class">CLASS</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="col s4">
+            <a ng-click="register()" class="waves-effect waves-light lime btn">SUBMIT</a>
+          </div>
+          <div class="col s4">
+            <a ng-click="cancel()" class="waves-effect waves-light lime btn">Cancel</a>
+          </div>
+        </div>
       </div>
     </form>
   </div>
+  <!-- <div class="col s10 offset-s2 addClass">
+    <form class="col s10 offset-s2">
+      <div class="row">
+        <div class="input-field col s8 offset-s2 secondField">
+          <span >
+          <select ng-model="class" ng-options="teacher.firstname for teacher in teachers">
+            <option></option>
+          </select>
+          </span>
+          <label>Choose A Teacher</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8 offset-s2 thirdField">
+          <select>
+            <option value="" disabled selected>SELECT A CLASS</option>
+            <option value="1">JavaScript</option>
+            <option value="2">NodeJs</option>
+            <option value="3">SQL</option>
+          </select>
+          <label>Choose A Class</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col s8 offset-s2">
+        <div class="col s4">
+          <a ng-click="newClass()" class="waves-effect waves-light lime btn">SUBMIT</a>
+        </div>
+        <div class="col s4">
+          <a ng-click="cancel()" class="waves-effect waves-light lime right btn">CANCEL</a>
+        </div>
+      </div>
+    </form>
+  </div> -->
