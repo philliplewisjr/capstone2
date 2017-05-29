@@ -20,8 +20,13 @@ app.config(function($routeProvider, $locationProvider){
     controller: "StudentCtrl",
     templateUrl: "partials/studentProfile.html",
     resolve: {
-      studentProfile: function (studentFactory, $route, $location) {
-        const id = $route.current.params.id
+      studentProfile (studentFactory, $route) {
+        var id = $route.current.params.id
+        return studentFactory.getStudentById(id)
+
+      },
+      studentClass (studentFactory, $route) {
+        var id = $route.current.params.id
           return studentFactory.getStudent(id);
       }
     }

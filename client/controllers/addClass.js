@@ -3,10 +3,11 @@ app.controller("AddClassCtrl", function($scope, teacherFactory, $http, $location
 
 teacherFactory.getTeachers().then((data)=>{
   console.log(data.data)
-  let teachers = data.data;
+  var teachers = data.data;
   console.log(teachers)
-  $scope.teachers
 })
+
+$scope.teachers
 
   $(document).ready(function() {
     $('select').material_select();

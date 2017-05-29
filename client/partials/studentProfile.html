@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="section">
     <div class="col s3 offset-s2 ">
@@ -106,7 +107,7 @@
 
   <div class="col s6 offset-s1 academicTable z-depth-4">
       <div class="table">
-        <table class="highlight bordered ng-repeat="data in classData">
+        <table class="highlight bordered" >
           <thead>
             <tr>
                 <th >Class</th>
@@ -115,9 +116,9 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td><img ng-src="{{data.picture}}" height="20px"/></td>
+          <tbody >
+            <tr ng-repeat="data in studentClass">
+              <td><img ng-src="{{data.picture}" height="20px"/></td>
               <td>{{data.subject}}</td>
               <td>{{data.status}}</td>
             </tr>

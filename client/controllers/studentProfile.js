@@ -1,50 +1,34 @@
-app.controller("StudentCtrl", function($scope, studentFactory, teacherFactory, classFactory, studentProfile,  $location, $http) {
+app.controller("StudentCtrl", function($scope, studentFactory, studentClass, teacherFactory, studentProfile,  $location, $http) {
 
 
-  console.log("studentProfile", studentProfile.class)
-  // var studentProfile = studentProfile
+  console.log("studentProfile", studentProfile)
   $scope.studentProfile = studentProfile
-  var studentClass = studentProfile.class
-// console.log(studentClass)
+  // var studentClass = studentClass.class
+  $scope.studentClass
+console.log("studentClass", studentClass)
 
-let classData = []
-for(var i = 0; i < studentClass.length; i++) {
-  console.log(studentClass[i].academics)
-classData.push(studentClass[i].academics)
-// classData[1] += studentClass[i].academics
-console.log(classData)
-$scope.classData
+
+
+
+
+
+
+var peoples = {
+  them: [
+  {name: 'Aemero', age: '7'},
+  {name: 'Erica', age: '33'}
+]
 }
-
-  // for(let i in studentClass) {
-  //   console.log(studentClass[i].academics)
-  //   academics[0] = studentClass[i].academics
-  //   academics[1] = studentClass[i].academics
-  //   console.log(academics)
-  //   $scope.academics
-  // }
+$scope.peoples
+console.log(peoples)
+var date = new Date()
+console.log(date)
+$scope.time = date
 
 
-  //get all students
-  studentFactory.getData()
-  .then((data)=>{
-    // console.log("data", data)
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
 
-  //get all teachers
-  teacherFactory.getTeachers()
-  .then((data)=>{
-    // console.log(data)
-  })
 
-  //get all classes
-  classFactory.getClass()
-  .then((data)=>{
-    // console.log(data)
-  })
+
 
 
 
@@ -57,17 +41,6 @@ $scope.classData
    $scope.teacher = data.data;
  })
 
-  //upload photo
-  $scope.addPhoto = ()=> {
-    console.log("photo function")
-    var photo = document.getElementById("file").files[0]
-    r = new FileReader();
-
-    r.onloadend = function(e) {
-      var data = e.target.result;
-      console.log("data", data)
-    }
-  }
 
 
 $scope.updateProfile = ()=>{
@@ -119,7 +92,6 @@ $scope.updateProfile = ()=>{
  $scope.addClass = ()=> {
    console.log("add class button clicked")
    $location.url("/addClass")
-
  }
 
 })
