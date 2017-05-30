@@ -3,6 +3,7 @@ app.controller("AddClassCtrl", function($scope, teacherFactory, $http, studentPr
 
 teacherFactory.getTeachers().then((data)=>{
   console.log(data.data)
+  //remember to set your variable before scoping
   var teachers = data.data;
   console.log(teachers)
   $scope.teachers = teachers

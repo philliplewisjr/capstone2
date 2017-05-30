@@ -82,10 +82,18 @@
 
 .addStudentForm {
   margin-top: 80px;
+  border: solid #00acc1;
+  max-width: 500px;
+  max-height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: thin;
+  border-radius: 8px;
 }
 
 .addHeader {
   text-align: center;
+  color: #cddc39;
 }
 
 .addClass {
@@ -127,6 +135,7 @@
   max-width: 800px;
   max-height: 800px;
   border: solid #00acc1;
+  border-width: thin;
   padding-top: 75px;
   border-radius: 5px;
 }
@@ -142,4 +151,9 @@
 
 .fixedMargin {
   margin-top: 50px;
+}
+
+.centerfields {
+  margin-left: auto;
+  margin-right: auto;
 }
