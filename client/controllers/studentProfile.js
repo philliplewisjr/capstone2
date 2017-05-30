@@ -65,12 +65,23 @@ $scope.updateProfile = ()=>{
    $('.modal').modal('close');
  }
 
+ //navigates to the add class page
  $scope.addClass = ()=> {
    console.log("add class button clicked")
    $location.url("/addClass")
  }
+
+ //delete class from student profile button
  $scope.removeClass = (id)=> {
    console.log("update class button", id)
+   $http.delete(`http://localhost:5000/api/v1/class/${id}`)
+   .then((data)=>{
+     $http.get(`http://localhost:5000/api/v1/class`)
+     .then((data)=>{
+       console.log(data)
+     })
+   })
+
  }
 
 })

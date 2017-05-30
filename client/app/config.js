@@ -4,11 +4,11 @@ app.config(function($routeProvider, $locationProvider){
   $locationProvider.hashPrefix('');
 
   $routeProvider
-  .when("/", {
+  .when("/home", {
     controller: "HomeCtrl",
     templateUrl: "partials/home.html"
   })
-  .when("/login", {
+  .when("/", {
     controller: "LoginCtrl",
     templateUrl: "partials/login.html"
   })
