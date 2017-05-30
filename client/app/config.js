@@ -50,8 +50,18 @@ app.config(function($routeProvider, $locationProvider){
     controller: "AddStudentCtrl",
     templateUrl: "partials/addStudent.html"
   })
-  .when("/addClass", {
+  .when("/addClass/:id", {
     controller: "AddClassCtrl",
-    templateUrl: "partials/addClass.html"
-  })
+    templateUrl: "partials/addClass.html",
+    resolve: {
+        studentProfile (studentFactory, $route) {
+        var id = $route.current.params.id
+        return studentFactory.getStudentById(id)
+    },
+    studies (academicFactory){
+      return academicFactory.getAcademics()
+    }
+
+  }
+})
 })

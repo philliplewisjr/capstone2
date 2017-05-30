@@ -1,11 +1,11 @@
-<div class="container fluid">
+<div class="container fluid fixedMargin">
   <div class="row">
     <div class="card col s3 offset-s1 classCards z-depth-4" ng-repeat="student in students">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator photo" ng-src="{{student.picture}}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<h6>{{student.parent}}</h6></span>
+        <span class="card-title activator grey-text text-darken-4">{{student.firstname}} {{student.lastname}}<h6><a ng-href="{{student.parent}}"><img class="left" ng-src="http://vectorlogofree.com/wp-content/uploads/2014/02/25231-github-cat-in-a-circle-icon-vector-icon-vector-eps.png" width="55px" height="40px" /></a></h6></span>
         <i ng-click="delete(student.id)" class="material-icons">🗑</i>
         <a ng-href="#/student/{{student.id}}" class="waves-effect lime waves-light btn right">Profile</a>
       </div>

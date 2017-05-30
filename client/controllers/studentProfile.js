@@ -2,35 +2,11 @@ app.controller("StudentCtrl", function($scope, studentFactory, studentClass, tea
 
 
   console.log("studentProfile", studentProfile)
+  //loads student's profile when page loads
   $scope.studentProfile = studentProfile
-  // var studentClass = studentClass.class
-  $scope.studentClass
-console.log("studentClass", studentClass)
-
-
-
-
-
-
-
-var peoples = {
-  them: [
-  {name: 'Aemero', age: '7'},
-  {name: 'Erica', age: '33'}
-]
-}
-$scope.peoples
-console.log(peoples)
-var date = new Date()
-console.log(date)
-$scope.time = date
-
-
-
-
-
-
-
+  console.log("studentClass", studentClass)
+  //loads student's data when page loads
+  $scope.studentClass = studentClass
 
  //get teacher by id
  teacherFactory.getTeacherById()
@@ -41,8 +17,7 @@ $scope.time = date
    $scope.teacher = data.data;
  })
 
-
-
+//opens modal to update student info
 $scope.updateProfile = ()=>{
     $('.modal').modal({
        dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -87,11 +62,15 @@ $scope.updateProfile = ()=>{
        console.log(err)
      })
    })
+   $('.modal').modal('close');
  }
 
  $scope.addClass = ()=> {
    console.log("add class button clicked")
    $location.url("/addClass")
+ }
+ $scope.removeClass = (id)=> {
+   console.log("update class button", id)
  }
 
 })
