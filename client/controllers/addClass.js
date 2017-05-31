@@ -11,6 +11,7 @@ teacherFactory.getTeachers().then((data)=>{
 
 //provides list of classes to take
 var studies = studies;
+console.log(studies)
 $scope.studies = studies;
 
 //used to pre populated student id input value

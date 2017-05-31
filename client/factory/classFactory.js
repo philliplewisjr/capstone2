@@ -1,6 +1,6 @@
 
 app.factory("classFactory", function($http){
-  
+
   return {
     getClass: function () {
       return $http.get(`http://localhost:5000/api/v1/class`)

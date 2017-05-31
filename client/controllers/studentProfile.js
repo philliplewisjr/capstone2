@@ -1,4 +1,4 @@
-app.controller("StudentCtrl", function($scope, studentFactory, studentClass, teacherFactory, studentProfile,  $location, $http) {
+app.controller("StudentCtrl", function($scope, studentFactory, studentClass, teacherFactory, studentProfile, classFactory, $timeout,  $location, $http) {
 
 
   console.log("studentProfile", studentProfile)
@@ -7,6 +7,7 @@ app.controller("StudentCtrl", function($scope, studentFactory, studentClass, tea
   console.log("studentClass", studentClass)
   //loads student's data when page loads
   $scope.studentClass = studentClass
+
 
  //get teacher by id
  teacherFactory.getTeacherById()
@@ -76,12 +77,13 @@ $scope.updateProfile = ()=>{
    console.log("update class button", id)
    $http.delete(`http://localhost:5000/api/v1/class/${id}`)
    .then((data)=>{
-     $http.get(`http://localhost:5000/api/v1/class`)
-     .then((data)=>{
-       console.log(data)
-     })
+     console.log(data)
+   })
+   .catch((err)=>{
+     console.log(err)
    })
 
  }
+
 
 })

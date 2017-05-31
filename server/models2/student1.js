@@ -46,7 +46,8 @@ const Student = bookshelf.Model.extend({
     .catch((err) => {
       return err;
     })
-  }
+  },
+  dependents: ['Class']
 })
 
 module.exports = bookshelf.model('Student', Student)

@@ -49,12 +49,12 @@ function updateStudent({params: {id}, body}, res, next) {
 function getStudentClass({params: {id}}, res, next) {
   console.log(id)
   Student.where({id: id}).fetch({withRelated: ['class.academics', 'class.teachers']})
-  .then(function(student){
-    console.log(student.related("class").toJSON());
-    res.status(200).json(student)
-  }).catch(function(err) {
-    console.error(err)
-  })
+                          .then(function(student){console.log(student.related("class").toJSON());
+                            res.status(200).json(student)
+                          })
+                          .catch(function(err) {
+                            console.error(err)
+                          })
 }
 
 module.exports = { getAllStudents, getStudent, addStudent, deleteStudent, updateStudent, getStudentClass }

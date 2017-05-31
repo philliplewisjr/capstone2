@@ -120,12 +120,12 @@
             </tr>
           </thead>
 
-          <tbody >
-            <tr ng-repeat="data in studentClass">
-              <td><img ng-src="{{data.picture}}" height="20px" width="20px"/></td>
-              <td>{{data.subject}}</td>
-              <td>{{data.status}}</td>
-              <td><i class="material-icons" ng-click="removeClass(data.id)">delete</i></td>
+          <tbody ng-repeat="class in studentClass">
+            <tr >
+              <td><img ng-src="{{class.academics.picture}}" height="20px" width="20px"/></td>
+              <td>{{class.academics.subject}}</td>
+              <td>{{class.academics.status}}</td>
+              <td><i class="material-icons" ng-click="removeClass(class.id)">delete</i></td>
             </tr>
           </tbody>
         </table>

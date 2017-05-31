@@ -15,14 +15,7 @@ app.factory("studentFactory", function($http){
 
        var classInfo = data.data.class
        console.log("classInfo", classInfo)
-
-       var classData = []
-       for(let i = 0; i < classInfo.length; i++) {
-       classData.push(classInfo[i].academics)
-       }
-       console.log("classData", classData)
-       return classData
-
+       return classInfo
      })
    },
    getStudentById: function (id) {
@@ -33,5 +26,4 @@ app.factory("studentFactory", function($http){
      })
    }
  }
-
- })
+})
