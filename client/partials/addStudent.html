@@ -1,0 +1,52 @@
+<div class="row addStudentForm z-depth-3">
+  <h3 class="addHeader">Add New Student</h3>
+  <form class="col s8 offset-s2">
+      <div class="row">
+        <div class="input-field col s11 centerfields">
+          <input id="firstname" type="text" class="validate" ng-model="firstName">
+          <label for="firstname">First Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="lastname" type="text" class="validate" ng-model="lastName">
+          <label for="lastname">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="studentPhoto" type="text" class="validate" ng-model="pictureUrl">
+          <label for="studentPhoto">Photo</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="studentGrade" type="text" class="validate" ng-model="grade">
+          <label for="studentGrade">Grade</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="parent" id="parent" type="text"  class="validate" ng-model="parent">
+          <label for="studentParent">Parent</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="studentPhone" type="text" class="validate" ng-model="phone">
+          <label for="studentPhone">Phone</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s11">
+          <input id="studentGender" type="text" class="validate" ng-mode="gender">
+          <label for="studentGender">Gender</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s2">
+          <a ng-click="addStudent(student)"class="waves-effect waves-light btn center-align lime">Submit</a>
+        </div>
+      </div>
+    </form>
+  </div>

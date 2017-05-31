@@ -1,13 +1,13 @@
-const bookshelf = require('../db/database')
-require('./student')
-require('./parent')
+const { bookshelf } = require('../db/database')
+require('./students')
+require('./parents')
 
 const Family = bookshelf.Model.extend({
-  tableName: family,
+  tableName: 'family',
   student: function () {return this.hasMany('Students')},
   parent: function () {return this.hasMany('Parents')}
 }, {
-  getAllfamilies: function () {
+  getAll: function () {
     return this.forge()
     .fetchAll()
     .then((rows)=>{
@@ -17,15 +17,21 @@ const Family = bookshelf.Model.extend({
       return error;
     })
   },
-  getFamily: function (id) {
-    return this.where({family_id: id})
+  getById: function (id) {
+    return this.where({id: id})
     .fetch()
     .then((family)=>{
-      return family:
+      return family;
     })
     .catch((error)=>{
       return family;
     })
-  }
+  },
+  delete: function (id) {
+    return this.where({id: id})
+    .destroy({require: true})
+  },
+  dependents: [ 'Parents', 'Students' ]
+
 })
 module.exports = bookshelf.model('Family', Family)

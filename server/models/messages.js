@@ -1,4 +1,4 @@
-const bookshelf = require('../db/database')
+const { bookshelf } = require('../db/database')
 require('./teachers')
 require('./students')
 
@@ -18,7 +18,7 @@ const Messages = bookshelf.Model.extend({
     })
   },
   getById: function (id) {
-    return this.where({message_id: id})
+    return this.where({id: id})
     .fetch()
     .then((message)=>{
       return message;
@@ -26,14 +26,15 @@ const Messages = bookshelf.Model.extend({
     .catch((error)=>{
       return error;
     })
-  }
+  },
   add: function (message) {
     return this.forge(message)
     .save({}, {require: true})
   },
   delete: function (id) {
-    return this.where({message_id: id})
+    return this.where({id: id})
     .destroy({require: true})
-  }
+  },
+  dependents: [ 'Students', 'Teachers' ]
 })
 module.exports = bookshelf.model('Messages', Messages)

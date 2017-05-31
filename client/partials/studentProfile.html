@@ -1,0 +1,134 @@
+
+<div class="row">
+  <div class="section">
+    <div class="col s3 offset-s2 ">
+      <ul class="collection teacherCard z-depth-3">
+        <li class="collection-item avatar">
+          <img class="circle" src="{{teacher.picture}}">
+          <span class="title">Instructor</span>
+          <p>{{teacher.firstname}} <br>
+             {{teacher.lastname}}
+          </p>
+          <a href="https://github.com/nss-day-cohort-17" class="secondary-content"><i class="right">📚</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="schoolLogo">
+    <img class="col s2 offset-s2" src="http://www.nashvilleparent.com/wp-content/uploads/2014/07/nhm_logo-w-tagline.jpg" />
+  </div>
+  <div class="col s10 offset-s1 divider  yellow accent-3"></div>
+
+  <div class="col s2 offset-s2">
+    <div class="card studentCard z-depth-4">
+      <div class="card-image waves-effect waves-block waves-light">
+        <!-- <input type="file" id="file" name="file"/ />
+        <button ng-click="addPhoto()">Upload Photo</button> -->
+        <img class="activator" src="{{studentProfile.picture}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{studentProfile.firstname}} {{studentProfile.lastname}}<a ng-click="updateProfile()" data-target="modal1" class="waves-effect waves-light lime btn right">Update</a></span>
+
+        <!-- Modal for updating profile -->
+        <div id="modal1" class="modal updateStudent">
+          <!-- <div class="login"> -->
+            <div class="row">
+              <form class="col s8 offset-s4">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="firstname" type="text" class="validate" ng-model="firstName">
+                      <label for="firstname">First Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="lastname" type="text" class="validate" ng-model="lastName">
+                      <label for="lastname">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="studentPhoto" type="text" class="validate" ng-model="pictureUrl">
+                      <label for="studentPhoto">Photo</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="studentGrade" type="text" class="validate" ng-model="grade">
+                      <label for="studentGrade">Grade</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="parent" id="parent" type="text"  class="validate" ng-model="parent">
+                      <label for="studentParent">Parent</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="studentPhone" type="text" class="validate" ng-mode="phone">
+                      <label for="studentPhone">Phone</label>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="input-field col s6">
+                      <input id="studentGender" type="text" class="validate" ng-mode="gender">
+                      <label for="studentGender">Gender</label>
+                    </div>
+                  </div> -->
+                  <div class="row">
+                    <div class="col s2 offset-s2">
+                      <a ng-click="updateStudent(studentProfile.id)"class="waves-effect waves-light lime btn right">Submit</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            <!-- </div> -->
+        </div>
+        <!-- end of modal -->
+
+        <p><a href="{{studentProfile.parent}}"><img ng-src="http://vectorlogofree.com/wp-content/uploads/2014/02/25231-github-cat-in-a-circle-icon-vector-icon-vector-eps.png" width="55px" height="40px"></a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Student Bio<i class="material-icons right">done</i></span>
+        <ol>
+          <li>
+            School: {{studentProfile.grade}}
+          </li>
+          <li>
+            Gender: {{studentProfile.gender}}
+          </li>
+          <li>
+            Phone: {{studentProfile.phone}}
+          </li>
+        </ol>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+   </div>
+
+  </div>
+
+  <div class="col s6 offset-s1 academicTable z-depth-4">
+      <div class="table">
+        <table class="highlight bordered" >
+          <thead>
+            <tr>
+                <th >Class</th>
+                <th>Subject</th>
+                <th>Progress</th>
+                <th>Delete Class</th>
+            </tr>
+          </thead>
+
+          <tbody ng-repeat="class in studentClass">
+            <tr id="classRow">
+              <td><img ng-src="{{class.academics.picture}}" height="20px" width="20px"/></td>
+              <td>{{class.academics.subject}}</td>
+              <td>{{class.academics.status}}</td>
+              <td><i class="material-icons" ng-click="removeClass(class.id)">delete</i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <a ng-href="#/addClass/{{studentProfile.id}}" class="waves-effect waves-light lime btn">Add Class</a>
+    </div>

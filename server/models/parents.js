@@ -1,10 +1,16 @@
-const bookshelf = require('../db/database')
+const { bookshelf } = require('../db/database')
 
 require('./students')
 
-const Parents = bookshelf.model.extend({
+const Parents = bookshelf.Model.extend({
   tableName: 'parents',
   student: function () { return this.belongsToMany('Students').through('Family')}
+  // bycrypt: { field: 'password'},
+  // comparePass: function (passowordStr) {
+  //   console.log("passowrd string form user", passwordStr)
+  //   console.log("user", this.attributes);
+  //   return compare(passwordStr, this.attributes.password)
+  // }
 }, {
   all: function () {
     return this.forge()
@@ -17,7 +23,7 @@ const Parents = bookshelf.model.extend({
     })
   },
   getById: function (id) {
-    return this.where({parent_id: id})
+    return this.where({id: id})
     .fetch()
     .then((parent)=>{
       return parent;
@@ -31,8 +37,18 @@ const Parents = bookshelf.model.extend({
     .save({}, {require: true})
   },
   delete: function (id) {
-    return this.where({parent: id})
+    return this.where({id: id})
     .destroy({require: true})
+  },
+  update: function(body, id) {
+    return this.where({id: id})
+    .save(body, {patch: true})
+    .then(() => {
+      return {"message": "Information Updated"}
+    })
+    .catch((err) => {
+      return err;
+    })
   },
   dependencies: ['family']
 })
