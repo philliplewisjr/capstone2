@@ -82,7 +82,7 @@ $scope.updateProfile = ()=>{
    .catch((err)=>{
      console.log(err)
    })
-
+   $('#classRow').remove()
  }
 
 
